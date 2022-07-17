@@ -21,6 +21,7 @@ use App\Models\Course;
 use Illuminate\Support\Facades\DB;
 use App\Models\Interest;
 use App\Models\Subject;
+use App\Http\Controllers\UserInterestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -126,15 +127,39 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('user-entry', function () {
-        $interest = Interest::all();
-        $subject=Subject::all();
+        $courses = Course::all();
+
+        $holland = DB::table('hollandcode')
+            ->join('course', 'course.id', '=', 'hollandcode.course_id')
+            ->select('hollandcode.*')
+            ->get();
+        $subject = DB::table('subject')
+            ->join('course', 'course.id', '=', 'subject.course_id')
+            ->select('subject.*')
+            ->get();
+
+        $grade = DB::table('grades')
+            ->join('subject', 'subject.id', '=', 'grades.subject_id')
+            ->select('grades.*')
+            ->get();
+
+        $interest = DB::table('interest')
+            ->join('hollandcode', 'hollandcode.id', '=', 'interest.holland_id')
+            ->select('interest.*')
+            ->get();
         $data = [
-            'interest' => $interest,
-            'subject'=>$subject
+            'courses' => $courses,
+            'holland' => $holland,
+            'subject' => $subject,
+            'grade' => $grade,
+            'interest' => $interest
         ];
         Log::info('The users entries are being viewed by the user');
         return view('user-entry', $data);
     })->name('user-entry');
+
+    Route::post('/adduserinterestentry', [UserInterestController::class, 'store']);
+
 
     Route::get('admin', function () {
         $feedback = feedback::all();
@@ -206,14 +231,23 @@ Route::middleware([
     Route::post('/course/delete', [CourseController::class, 'delete']);
 
     Route::get('/usercourse', function () {
-        $courses = Course::all();
-        $data = [
 
-            
-            'courses' => $courses,
-           
+
+        $userinterestentry = DB::table('user_interest_entry')
+            ->join('users', 'users.id', '=', 'user_interest_entry.user_id')
+            ->select('user_interest_entry.*')
+            ->get();
+
+        $course = DB::table('course')
+            ->join('user_interest_entry', 'user_interest_entry.course_id', '=', 'course.id')
+            ->select('course.*')
+            ->get();
+
+        $data = [
+            'userinterestentry' => $userinterestentry,
+            'course' => $course,
         ];
 
-        return view('course-recommendation',$data);
+        return view('course-recommendation', $data);
     });
 });

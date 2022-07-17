@@ -102,10 +102,9 @@
                 <a href="javascript:void(0)">Join In</a>
                
                 <ul class="sub-menu">
-                  <li><a href="{{ route('login') }}">Login</a></li>
-                  @if (Route::has('register'))
-                  <li><a href="{{ route('register') }}">Register</a></li>
-                  @endif
+                  <li><a href="{{ route('login') }}">Sign In</a></li>
+                  <li><a href="{{ route('login') }}">Sign Up</a></li>
+                
                   @endauth
                   
                 </ul>

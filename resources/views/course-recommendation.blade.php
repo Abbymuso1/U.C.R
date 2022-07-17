@@ -131,13 +131,22 @@
                         <h2>Univeristy Course Recommendations for <span style="color: orange;"> {{ Auth::user()->name }}</span></h2>
                     </div>
                 </div>
+
                 <div class="row">
-                    @foreach($courses as $cor)
+                    @foreach($userinterestentry as $userint)
+                    @if(Auth::user()->id==$userint->user_id)
+                    @foreach($course as $co)
+                    @if($co->id==$userint->course_id)
+
                     <div class="col-lg-3">
                         <div class="item">
                             <img src={{asset('images/course-01.jpg')}} alt="Course One">
                             <div class="down-content">
-                                <h4>{{$cor->course_name}}</h4>
+                                @if($userint->answer == 1)
+                                <h4>{{$co->course_name}}</h4>
+                                @elseif($userint->answer==0)
+                                <h4>No recommendation</h4>
+                                @endif
                                 <div class="info">
                                     <div class="row">
                                         <div class="col-8">
@@ -154,11 +163,17 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
+
+                    @endif
+                    @endforeach
+                    @endif
                     @endforeach
                 </div>
+
 
             </div>
         </div>

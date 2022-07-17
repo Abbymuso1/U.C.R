@@ -45,7 +45,7 @@
 
 
 
-            <form id="signin" action="{{route('login')}}" method="POST">
+            <form id="signin" action="{{url('/adduserinterestentry')}}" method="POST">
                 <x-slot name="logo">
                     <x-jet-authentication-card-logo />
                 </x-slot>
@@ -53,14 +53,25 @@
                 @csrf
                 <div class="ribbon"><a href="#" id="flipToRecover" class="flipLink" title="Click Here to enter grades">Grade Entry</a></div>
                 <h2>Interest Entry</h2>
+
+                @foreach($courses as $cor)
+                @foreach($holland as $hol)
+                @if($cor->id==$hol->course_id)
                 @foreach($interest as $int)
+                @if($hol->id==$int->holland_id)
                 <p>{{$int->question}}</p>
-                <select>
+                <select name="int_ans">
                     <option value="1">Yes</option>
                     <option value="0">No</option>
                 </select>
-
-
+                <input hidden name="course_id" value="{{$cor->id}}">
+                <input hidden name="holland_id" value="{{$hol->id}}">
+                <input hidden name="interest_id" value="{{$int->id}}">
+                <input hidden name="user_id" value="{{ Auth::user()->id }}">
+                @endif
+                @endforeach
+                @endif
+                @endforeach
                 @endforeach
 
                 <input type="submit" value="{{ __('Submit') }}">
