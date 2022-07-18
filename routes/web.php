@@ -129,6 +129,8 @@ Route::middleware([
     Route::get('user-entry', function () {
         $courses = Course::all();
 
+        $value=1;
+
         $holland = DB::table('hollandcode')
             ->join('course', 'course.id', '=', 'hollandcode.course_id')
             ->select('hollandcode.*')
@@ -152,7 +154,8 @@ Route::middleware([
             'holland' => $holland,
             'subject' => $subject,
             'grade' => $grade,
-            'interest' => $interest
+            'interest' => $interest,
+            'value'=>$value
         ];
         Log::info('The users entries are being viewed by the user');
         return view('user-entry', $data);

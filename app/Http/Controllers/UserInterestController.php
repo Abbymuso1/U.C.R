@@ -9,6 +9,7 @@ class UserInterestController extends Controller
 {
     public function store(Request $request)
     {
+        dd($request);
         $interest=new UserInterest();
         $interest->user_id = $request->input('user_id');
         $interest->course_id = $request->input('course_id');

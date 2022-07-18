@@ -239,14 +239,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     
     .signin-form {
         width: 60%;
-        height: 500px;
+        height: 600px;
         margin: 2em auto;
         position: relative;
     }
     
     #w3ls_form form {
         width: 87%;
-        height: 76%;
+        height: 95%;
         position: absolute;
         top: 0;
         left: 0;

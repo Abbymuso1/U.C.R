@@ -31,10 +31,8 @@
 
 
 
-            <form id="signin" action="{{route('login')}}" method="POST">
-                <x-slot name="logo">
-                    <x-jet-authentication-card-logo />
-                </x-slot>
+            <form id="signin" action="{{route('login')}}" method="POST" style="height:400px;">
+                
 
                 @if (session('status'))
                 <div class="mb-4 font-medium text-sm text-green-600">
@@ -61,14 +59,12 @@
                     <p><a href="{{ route('password.request') }}">Forgot password ?</a></p>
                 </div>
                 @endif
-             
+
             </form>
 
 
             <form id="signup" action="{{ route('register') }}" method="POST">
-                <x-slot name="logo">
-                    <x-jet-authentication-card-logo />
-                </x-slot>
+        
 
                 @csrf
                 <div class="ribbon"><a href="#" id="flipToRecover1" class="flipLink" title="Click Here to signin">Sign In</a></div>
@@ -79,17 +75,28 @@
                 <span class="text-danger">@error('Full_Name') {{$message}} @enderror</span>
 
                 <p>{{ __('Email') }} </p>
-                <input id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="email"/>
+                <input id="email" type="email" name="email" :value="old('email')" required autofocus autocomplete="email" />
                 <span class="text-danger">@error('Email') {{$message}} @enderror</span>
 
+                <p>{{ __('Age') }}</p>
+                <input id="age" type="number" name="age" :value="old('age')" required autofocus autocomplete="age" />
+                <span class="text-danger">@error('Age') {{$message}} @enderror</span>
+
+                <p>{{ __('Gender') }}</p>
+                <select id="lang" name="gender">
+                    <option>Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
                 <p>{{ __('Password') }}</p>
-                <input id="password" type="password" name="password" required autocomplete="new-password"/>
+                <input id="password" type="password" name="password" required autocomplete="new-password" />
                 <span class="text-danger">@error('Password') {{$message}} @enderror</span>
 
                 <p>{{ __('Confirm Password') }}</p>
                 <input id="password_confirmation" type="password" name="password_confirmation" required autocomplete="new-password" />
                 <span class="text-danger">@error('Password') {{$message}} @enderror</span>
-    
+
                 @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
                 <input type="checkbox" id="brand1" value="">
                 <label for="brand1"><span></span>I accept the terms of use</label>
@@ -149,4 +156,3 @@
 </body>
 
 </html>
-

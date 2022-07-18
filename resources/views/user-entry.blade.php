@@ -45,6 +45,7 @@
 
 
 
+
             <form id="signin" action="{{url('/adduserinterestentry')}}" method="POST">
                 <x-slot name="logo">
                     <x-jet-authentication-card-logo />
@@ -53,14 +54,14 @@
                 @csrf
                 <div class="ribbon"><a href="#" id="flipToRecover" class="flipLink" title="Click Here to enter grades">Grade Entry</a></div>
                 <h2>Interest Entry</h2>
-
                 @foreach($courses as $cor)
                 @foreach($holland as $hol)
                 @if($cor->id==$hol->course_id)
                 @foreach($interest as $int)
                 @if($hol->id==$int->holland_id)
-                <p>{{$int->question}}</p>
+                <p>{{$int->id}}. {{$int->question}}</p>
                 <select name="int_ans">
+                    <option>Select yes or no</option>
                     <option value="1">Yes</option>
                     <option value="0">No</option>
                 </select>
@@ -73,11 +74,12 @@
                 @endif
                 @endforeach
                 @endforeach
-
                 <input type="submit" value="{{ __('Submit') }}">
-
+              
 
             </form>
+
+
 
 
             <form id="signup" action="" method="POST">
@@ -88,10 +90,11 @@
                 @csrf
                 <div class="ribbon"><a href="#" id="flipToRecover1" class="flipLink" title="Click Here to enter Interest">Interest Entry</a></div>
                 <h3>Grades</h3>
-
+                @foreach($courses as $cor)
                 @foreach($subject as $sub)
                 <p>{{$sub->subject_name}}</p>
                 <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                @endforeach
                 @endforeach
                 <input type="submit" style="margin-left:60px;" value=" {{ __('Submit') }}">
             </form>
@@ -136,6 +139,11 @@
                 }
 
                 return false;
+            }
+
+            function nextQuestion(id) {
+                let id = id;
+                console.log(id);
             }
         });
     </script>
