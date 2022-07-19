@@ -16,7 +16,7 @@
                     <a href="{{url('admin/user')}}" class="text-center bg-orange-300 text-black w-[100%] py-3 rounded-tr-md rounded-tl-md shadow-md">Users</a>
                 </div>
                 <div class="flex mt-2 text-lg font-extralight text-zinc-700 justify-center mt-10">
-                    <p class="flex text-5xl font-semibold">{{$users->count()}}</p>
+                    <p data-user="{{$users->count()}}" class="flex text-5xl font-semibold">{{$users->count()}}</p>
                 </div>
             </div>
             <div class="flex flex-col h-[150px] w-[200px] rounded-xl bg-white shadow-md md:w-[200px] transition ease-in-out hover:shadow-lg hover:">
@@ -24,7 +24,7 @@
                     <a href="{{url('admin/user')}}" class="text-center bg-orange-300 text-black w-[100%] py-3 rounded-tr-md rounded-tl-md shadow-md">User Entries</a>
                 </div>
                 <div class="flex mt-2 text-lg font-extralight text-zinc-700 justify-center mt-10">
-                    <p class="flex">User Entries</p>
+                    <p class="flex text-5xl font-semibold">{{$usergradeentry->count()}}</p>
                 </div>
             </div>
             <div class="flex flex-col h-[150px] w-[200px] rounded-xl bg-white shadow-md md:w-[200px] transition ease-in-out hover:shadow-lg hover:">
@@ -45,11 +45,82 @@
             </div>
         </div>
         <div class="flex flex-row gap-10 p-10 items-center">
-            <div class="flex flex-col bg-white p-2 rounded shadow w-[500px] h-[400px]">
-                Graphs
+            <div class="flex flex-col  p-2 rounded shadow w-[500px] ">
+                <div class="shadow-lg rounded-lg overflow-hidden">
+                    <div class="py-3 px-5 bg-gray-50">User chart</div>
+                    <canvas class="p-10" id="chartBar"></canvas>
+                </div>
+
+                <!-- Required chart.js -->
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                <!-- Chart bar -->
+                <script>
+                    const labelsBarChart = [
+                        "Male",
+                        "Female",
+
+                    ];
+                    const dataBarChart = {
+                        labels: labelsBarChart,
+                        datasets: [{
+                            label: "My First dataset",
+                            backgroundColor: "hsl(252, 82.9%, 67.8%)",
+                            borderColor: "hsl(252, 82.9%, 67.8%)",
+                            data: [1, 2, 10],
+                        }, ],
+                    };
+
+                    const configBarChart = {
+                        type: "bar",
+                        data: dataBarChart,
+                        options: {},
+                    };
+
+                    var chartBar = new Chart(
+                        document.getElementById("chartBar"),
+                        configBarChart
+                    );
+                </script>
             </div>
-            <div class="flex flex-col bg-white p-2 rounded shadow w-[500px] h-[400px]">
-                Graph
+            <div class="flex flex-col  p-2 rounded shadow w-[500px] h-[550px]">
+                <div class="shadow-lg rounded-lg overflow-hidden">
+                    <div class="py-3 px-5 bg-gray-50">User Entries</div>
+                    <canvas class="p-10" id="chartDoughnut"></canvas>
+                </div>
+
+                <!-- Required chart.js -->
+                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                <!-- Chart doughnut -->
+                <script>
+                    const dataDoughnut = {
+                        labels: ["Mathematics", "English", "Swahili"],
+                        datasets: [{
+                            label: "My First Dataset",
+                            data: [300, 50, 100],
+                            backgroundColor: [
+                                "rgb(133, 105, 241)",
+                                "rgb(164, 101, 241)",
+                                "rgb(101, 120, 241)",
+                              
+                                
+                            ],
+                            hoverOffset: 4,
+                        }, ],
+                    };
+
+                    const configDoughnut = {
+                        type: "doughnut",
+                        data: dataDoughnut,
+                        options: {},
+                    };
+
+                    var chartBar = new Chart(
+                        document.getElementById("chartDoughnut"),
+                        configDoughnut
+                    );
+                </script>
             </div>
         </div>
         <div class="flex flex-row gap-10 p-5">
@@ -85,7 +156,7 @@
                                     Feedback
                                 </th>
                                 <th class="px-5 py-2 text-xs text-black">
-                                   Action
+                                    Action
                                 </th>
                             </tr>
                         </thead>
@@ -102,7 +173,7 @@
                                 </td>
                                 <td class="px-5 py-4">
                                     <div class="email text-sm text-gray-500">
-                                     <a target="_BLANK" href="https://mail.google.com/mail/u/2/#inbox?compose={{$feed->email}}">{{$feed->email}}</a>
+                                        <a target="_BLANK" href="https://mail.google.com/mail/u/2/#inbox?compose={{$feed->email}}">{{$feed->email}}</a>
                                     </div>
                                 </td>
 

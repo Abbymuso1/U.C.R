@@ -166,10 +166,12 @@ Route::middleware([
         $feedback = feedback::all();
         $users = User::all();
         $courses = Course::all();
+        $usergradeentry = GradeEntry::all();
 
         $data = [
 
             'users' => $users,
+            'usergradeentry' => $usergradeentry,
             'courses' => $courses,
             'feedback' => $feedback
         ];
@@ -181,9 +183,18 @@ Route::middleware([
 
 
     Route::get('admin/user-entry', function () {
+
+        $usergradeentry = GradeEntry::all();
+
+        $data=[
+            'gradeentry'=>  $usergradeentry,
+        ];
+
+
         Log::info('The users entries are being viewed by the admin');
 
-        return view('admin.user_entry');
+
+        return view('admin.user_entry',$data);
     });
 
 

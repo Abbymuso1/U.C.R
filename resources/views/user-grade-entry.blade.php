@@ -55,7 +55,7 @@
                 <div class="ribbon"><a href="#" id="flipToRecover" class="flipLink" title="Click Here to enter grades">View Points</a></div>
                 <h2>Grade Entry</h2>
                 <p style="color:white; text-align:center;">Enter grades for Maths, English, Swahili and two sciences or one humanity and one technical or two humanities</p>
-
+                <input hidden name="user" value="{{Auth::user()->id}}">
                 <p>Mathematics</p>
                 <!-- <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> -->
                 <select name="mathematics" id="option2">
@@ -166,14 +166,14 @@
                 @foreach($grades as $grade)
 
                 <p>Recommendation Grade Entry ID: {{$grade->id}}</p>
-                
+
                 <p>Total Points: {{$grade->totalpoints}}</p>
-              
-              
-            
+
+
+
                 <p>Average Points: {{$grade->average}}</p>
-                
-                
+
+
                 @foreach($graderef as $gr)
                 @if($grade->average==$gr->score)
                 <p>Mean Grade: {{$gr->grade}}</p>
@@ -181,7 +181,7 @@
                 @endforeach
                 @endforeach
                 <p>--------</p>
-                
+
 
 
 

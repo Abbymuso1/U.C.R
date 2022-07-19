@@ -15,6 +15,8 @@ class CreateUserGradeEntryTable extends Migration
     {
         Schema::create('user_grade_entry', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
+        
             $table->string("mathematics")->nullable();
             $table->string("english")->nullable();
             $table->string("swahili")->nullable();
