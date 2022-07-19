@@ -136,30 +136,37 @@
 
 
                     @foreach($course as $co)
-                    @foreach($subject as $sub)
-                    @if($co->id==$sub->course_id)
-                    @foreach($grade as $gr)
 
-                    @foreach($usergradeentry as $userint)
+                    <div class="col-lg-3">
+                        <div class="item">
+                            <img src={{asset('images/course-01.jpg')}} alt="Course One">
+                            <div class="down-content">
+                            
+                                <h4>{{$co->course_name}}</h4>
+                            
+                                
+                                <div class="info">
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <ul>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                                <li><i class="fa fa-star"></i></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-4">
+                                            <span>$160</span>
+                                        </div>
+                                    </div>
+                                </div>
 
-                    @if($sub->subject_name=="Mean grade")
+                            </div>
+                        </div>
+                    </div>
 
-                    @if($sub->id==$gr->subject_id)
 
-                    @if($userint->average==$gr->score)
-
-                    <p>{{$co->name}}hello</p>
-                    @endif
-
-                    @endif
-
-                    @endif
-
-                    @endforeach
-                  
-                    @endforeach
-                    @endif
-                    @endforeach
                     @endforeach
                 </div>
 
