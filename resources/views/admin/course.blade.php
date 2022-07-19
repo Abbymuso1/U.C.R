@@ -8,7 +8,9 @@ $index = 0;
 <div class="flex">
     <div class="flex flex-col w-full">
         <div class="flex flex-row p-5 text-black bg-white">
-            <a class="flex text-3xl font-bold">U.C.R System</a>
+            <a href="/admin" class="logo" style="color:orangered; font-size:xx-large; font-family:cursive">
+                Wise Choice
+            </a>
             <div class="flex flex-row absolute right-10 gap-3 items-center">
                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                 <button class="flex bg-red-200 rounded-full w-[40px] h-[40px]">Image</button>
@@ -208,6 +210,7 @@ $index = 0;
                                             @csrf
 
                                             <input type="text" name="grade_name" placeholder="Grade" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 mb-10 focus:border-blue-500 block w-full p-2.5  dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required>
+                                            <input type="number" name="grade_score" placeholder="Grade Score" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 mb-10 focus:border-blue-500 block w-full p-2.5  dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required>
 
                                             <input type="hidden" name="subject_id" value='{{$sub->id}}'>
 
@@ -317,6 +320,7 @@ $index = 0;
                                             @method('PUT')
 
                                             <input type="text" name="grade_name" value="{{$gr->grade}}" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 mb-10 focus:border-blue-500 block w-full p-2.5  dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required>
+                                            <input type="text" name="grade_score" value="{{$gr->score}}" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 mb-10 focus:border-blue-500 block w-full p-2.5  dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required>
 
                                             <input type="hidden" name="grade_id" value='{{$gr->id}}'>
 
@@ -332,8 +336,9 @@ $index = 0;
                         @if($sub->id==$gr->subject_id)
 
                         <div class="flex flex-row mt-2 w-[60%] bg-red-200 py-1 px-5">
-                            <div class="flex w-[40%] items-center flex-row gap-2 ml-4 text-l">
-                                <h2 class=" font-normal flex"> Grade requirement : {{$gr->grade}}</h2>
+                            <div class="flex w-[45%] items-center flex-row gap-2 ml-4 text-l">
+                                <h2 class=" font-normal flex"> Grade requirement : {{$gr->grade}} Grade score: ({{$gr->score}})</h2>
+  
                             </div>
                             <div class="flex w-[50%] py-1  ml-20 justify-center gap-4 text-xs font-normal">
                                 <div class="flex flex-col items-center gap-1">
@@ -450,6 +455,7 @@ $index = 0;
                                             @csrf
 
                                             <input type="text" name="interest_desc" placeholder="Interest Question" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 mb-10 focus:border-blue-500 block w-full p-2.5  dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required>
+                                            <input type="text" name="interest_score" placeholder="Interest Score" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 mb-10 focus:border-blue-500 block w-full p-2.5  dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required>
 
                                             <input type="hidden" name="holland_id" value='{{$hol->id}}'>
 
@@ -504,6 +510,7 @@ $index = 0;
                                             @method('PUT')
 
                                             <input type="text" name="interest_q" value="{{$int->question}}" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 mb-10 focus:border-blue-500 block w-full p-2.5  dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required>
+                                            <input type="text" name="interest_score" value="{{$int->score}}" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 mb-10 focus:border-blue-500 block w-full p-2.5  dark:border-gray-500 dark:placeholder-gray-400 dark:text-black" required>
 
                                             <input type="hidden" name="interest_id" value='{{$int->id}}'>
 
@@ -519,7 +526,8 @@ $index = 0;
                         @if($hol->id==$int->holland_id)
                         <div class="flex flex-row mt-2 w-[60%] bg-red-200 py-1 px-5">
                             <div class="flex w-[40%] items-center flex-row gap-2 ml-4 text-l">
-                                <h2 class=" font-normal flex">{{$int->question}}</h2>
+                                <h2 class=" font-normal flex">{{$int->question}} Score: {{$int->score}}</h2>
+                               
                             </div>
                             <div class="flex w-[50%] py-1  ml-20 justify-center gap-4 text-xs font-normal">
                                 <div class="flex flex-col items-center gap-1">

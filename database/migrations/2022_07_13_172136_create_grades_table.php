@@ -17,6 +17,7 @@ class CreateGradesTable extends Migration
             $table->id();
             $table->foreignId('subject_id')->constrained('subject')->onUpdate('cascade')->onDelete('cascade');
             $table->string('grade');
+            $table->string('score');
             $table->timestamps();
         });
     }

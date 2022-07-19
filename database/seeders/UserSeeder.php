@@ -23,23 +23,38 @@ class UserSeeder extends Seeder
 
         User::insert([
             [
-                'name' => "Admin1",
-                'email' => "admin@gmail.com",
-                'user_type' => "admin",
-                'email_verified_at' => now(),
-                'password' => Hash::make('password123'), // password
-                'remember_token' => Str::random(10),
-                'created_at' => now()
-            ],
-            [
-                'name' => "user1",
-                'email' => "user1@gmail.com",
+                'name' => "Abigail",
+                'email' => "abby.muso@gmail.com",
+                'age'=>"20",
+                'gender'=>"Female",
                 'user_type' => "user",
                 'email_verified_at' => now(),
                 'password' => Hash::make('password123'), // password
                 'remember_token' => Str::random(10),
                 'created_at' => now()
             ],
+            [
+                'name' => "Delicia",
+                'email' => "deliraduk@gmail.com",
+                'age'=>"20",
+                'gender'=>"Female",
+                'user_type' => "user",
+                'email_verified_at' => now(),
+                'password' => Hash::make('password123'), // password
+                'remember_token' => Str::random(10),
+                'created_at' => now()
+            ],
+            [
+                'name' => "admin",
+                'email' => "admin@gmail.com",
+                'age'=>"20",
+                'gender'=>"Male",
+                'user_type' => "admin",
+                'email_verified_at' => now(),
+                'password' => Hash::make('password123'), // password
+                'remember_token' => Str::random(10),
+                'created_at' => now()
+            ]
 
         ]);
     }

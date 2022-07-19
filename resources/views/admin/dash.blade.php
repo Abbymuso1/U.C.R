@@ -102,7 +102,7 @@
                                 </td>
                                 <td class="px-5 py-4">
                                     <div class="email text-sm text-gray-500">
-                                        {{$feed->email}}
+                                     <a target="_BLANK" href="https://mail.google.com/mail/u/2/#inbox?compose={{$feed->email}}">{{$feed->email}}</a>
                                     </div>
                                 </td>
 

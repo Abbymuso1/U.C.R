@@ -17,6 +17,7 @@ class GradeController extends Controller
         $Grade = new Grade;
         $Grade->subject_id = $request->input('subject_id');
         $Grade->grade = $request->input('grade_name');
+        $Grade->score = $request->input('grade_score');
         $Grade->created_at = now();
         $Grade->save();
         return redirect('admin/course');
@@ -27,6 +28,7 @@ class GradeController extends Controller
     {
         $Grade = Grade::find($id);
         $Grade->grade = $request->input('grade_name');
+        $Grade->score = $request->input('grade_score');
         $Grade->update();
         return redirect('admin/course');
     }

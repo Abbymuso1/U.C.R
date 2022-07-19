@@ -1,7 +1,9 @@
 <div class="flex flex-col">
 
   <div class="flex flex-row p-5 text-black bg-white">
-    <a class="flex text-3xl font-bold">U.C.R System</a>
+    <a href="/admin" class="logo" style="color:orangered; font-size:xx-large; font-family:cursive">
+      Wise Choice
+    </a>
     <div class="flex flex-row absolute right-10 gap-3 items-center">
       @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
       <button class="flex bg-red-200 rounded-full w-[40px] h-[40px]">Image</button>

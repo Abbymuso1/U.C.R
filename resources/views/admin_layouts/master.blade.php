@@ -23,7 +23,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap" rel="stylesheet">
     {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> --}}
 
-    <title>{{$title ?? 'U.C.R'}}</title>
+    <title>Wise Choice</title>
 
     <script>
         tailwind.config = {

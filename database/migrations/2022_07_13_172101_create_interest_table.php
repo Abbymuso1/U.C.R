@@ -17,6 +17,7 @@ class CreateInterestTable extends Migration
             $table->id();
             $table->foreignId('holland_id')->constrained('hollandcode')->onUpdate('cascade')->onDelete('cascade');
             $table->string('question');
+            $table->string('score');
             $table->timestamps();
         });
     }

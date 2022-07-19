@@ -18,6 +18,7 @@ class InterestController extends Controller
         $interest=new Interest;
         $interest->holland_id = $request->input('holland_id');
         $interest->question = $request->input('interest_desc');
+        $interest->score= $request->input('interest_score');
         $interest->created_at = now();
         $interest->save();
         return redirect('admin/course');
@@ -28,6 +29,7 @@ class InterestController extends Controller
         $interest = Interest::find($id);
         $interest->id = $request->input('interest_id');
         $interest->question = $request->input('interest_q');
+        $interest->score = $request->input('interest_score');
         $interest->updated_at=now();
         $interest->update();
         return redirect('admin/course');

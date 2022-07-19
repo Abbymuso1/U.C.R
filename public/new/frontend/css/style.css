@@ -207,7 +207,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         /* font-family: 'Athiti', sans-serif;
     background: url(../images/1.png)repeat #00e7ff 0px 0px;
     background-attachment: fixed; */
-        background-image: url("../../../images/facts-bg.jpg");
+        background-image: url("../../../images/meetings-page-bg.jpg");
         background-position: center center;
         background-attachment: fixed;
         background-repeat: no-repeat;
@@ -239,14 +239,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     
     .signin-form {
         width: 60%;
-        height: 600px;
         margin: 2em auto;
         position: relative;
     }
     
     #w3ls_form form {
         width: 87%;
-        height: 95%;
+        height: 650px;
         position: absolute;
         top: 0;
         left: 0;
@@ -364,6 +363,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     font-family: 'Athiti', sans-serif; */
     }
     
+    .text-danger {
+        color: #a12c2f;
+    }
+    
     .signin-form p {
         font-size: 1em;
         color: #fff;
@@ -387,12 +390,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     .navbar-added {
         background-color: rgba(0, 0, 0, 0.226);
         color: white;
-        height: 20px;
+        height: 50px;
         padding: 1em;
         font-family: Arial, Helvetica, sans-serif;
     }
-    
-    .nav li {}
     
     .signin-form input[type="checkbox"]+label {
         position: relative;

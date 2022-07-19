@@ -9,7 +9,7 @@
     <meta name="author" content="TemplateMo">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-    <title>U.C.R</title>
+    <title>Wise Choice</title>
 
     <!-- Bootstrap core CSS -->
     <link href={{asset('css/bootstrap.min.css')}} rel="stylesheet">
@@ -69,7 +69,7 @@
             <div class="row">
                 <div class="col-lg-8 col-sm-8">
                     <div class="left-content">
-                        <p>Welcome to <em>U.C.R</em> University Course Recommendation System</p>
+                        <p>Welcome to <em><span style="color:orangered; font-family:cursive">Wise Choice</span></em> University Course Recommendation System</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-4">
@@ -87,8 +87,8 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="/" class="logo">
-                            U.C.R
+                        <a href="/" class="logo" style="color:orangered; font-size:xx-large; font-family:cursive">
+                            Wise Choice
                         </a>
 
                         <ul class="nav">
@@ -153,7 +153,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="caption">
-                            
+
                             <h2>Welcome {{ Auth::user()->name }} </h2>
                             <p>Need help choosing a course? Do not worry🤗. We got you!<br>We have a variety of courses lined up for you to choose <br>from according to your interests and grades.</p>
                             <div class="main-button-red">
@@ -232,9 +232,9 @@
                         <h4>Course Categories</h4>
                         @foreach($courses as $course)
                         <ul>
-                            
+
                             <li><a href="#">{{$course->course_name}}</a></li>
-                            
+
                         </ul>
                         @endforeach
                         <div class="main-button-red">
@@ -254,15 +254,15 @@
                                     <a href="#">
                                         <h4>{{$course->course_name}}</h4>
                                     </a>
-                                    <p> A course for 
-                                    @foreach($holland as $hol)
-                                    @if($course->id==$hol->course_id)
-                                    {{$hol->holland_name}}
-                                    @endif
-                                    @endforeach
+                                    <p> A course for
+                                        @foreach($holland as $hol)
+                                        @if($course->id==$hol->course_id)
+                                        {{$hol->holland_name}}
+                                        @endif
+                                        @endforeach
 
-                                    people
-    </p>
+                                        people
+                                    </p>
 
                                 </div>
                             </div>
@@ -387,9 +387,9 @@
     </section>
 
     <section class="contact-us" id="contact">
-       
+
         <div class="footer">
-            <p>Copyright © 2022 U.C.R System. All Rights Reserved. </p>
+            <p>Copyright © 2022 Wise Choice System. All Rights Reserved. </p>
         </div>
     </section>
 

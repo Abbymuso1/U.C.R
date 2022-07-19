@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Interest;
 use App\Models\Subject;
 use App\Http\Controllers\UserInterestController;
+use App\Http\Controllers\GradeEntryController;
+use App\Models\GradeEntry;
+use App\Models\GradeRef;
 
 /*
 |--------------------------------------------------------------------------
@@ -127,41 +130,26 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('user-entry', function () {
-        $courses = Course::all();
 
-        $value=1;
+        $grades=GradeEntry::all();
 
-        $holland = DB::table('hollandcode')
-            ->join('course', 'course.id', '=', 'hollandcode.course_id')
-            ->select('hollandcode.*')
-            ->get();
-        $subject = DB::table('subject')
-            ->join('course', 'course.id', '=', 'subject.course_id')
-            ->select('subject.*')
-            ->get();
+        $graderef=GradeRef::all();
 
-        $grade = DB::table('grades')
-            ->join('subject', 'subject.id', '=', 'grades.subject_id')
-            ->select('grades.*')
-            ->get();
-
-        $interest = DB::table('interest')
-            ->join('hollandcode', 'hollandcode.id', '=', 'interest.holland_id')
-            ->select('interest.*')
-            ->get();
-        $data = [
-            'courses' => $courses,
-            'holland' => $holland,
-            'subject' => $subject,
-            'grade' => $grade,
-            'interest' => $interest,
-            'value'=>$value
+        $data=[
+            'grades'=>$grades,
+            'graderef'=>$graderef
         ];
-        Log::info('The users entries are being viewed by the user');
-        return view('user-entry', $data);
+        Log::info('The users grade entries are being viewed by the user');
+        return view('user-grade-entry',$data);
     })->name('user-entry');
 
+    Route::get('user-interest-entry', function () {
+        Log::info('The users grade entries are being viewed by the user');
+        return view('user-interest-entry');
+    })->name('user-interest-entry');
+
     Route::post('/adduserinterestentry', [UserInterestController::class, 'store']);
+    Route::post('/addusergradeentry', [GradeEntryController::class, 'store']);
 
 
     Route::get('admin', function () {

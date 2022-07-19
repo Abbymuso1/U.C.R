@@ -9,7 +9,7 @@
   <meta name="author" content="TemplateMo">
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
-  <title>U.C.R</title>
+  <title>Wise Choice</title>
 
   <!-- Bootstrap core CSS -->
   <link href={{asset('css/bootstrap.min.css')}} rel="stylesheet">
@@ -69,12 +69,12 @@
       <div class="row">
         <div class="col-lg-8 col-sm-8">
           <div class="left-content">
-            <p>Welcome to <em>U.C.R</em> University Course Recommendation System</p>
+            <p>Welcome to <em><span style="color:orangered; font-family:cursive">Wise Choice</span></em> University Course Recommendation System</p>
           </div>
         </div>
         <div class="col-lg-4 col-sm-4">
           <div class="right-icons">
-           
+
           </div>
         </div>
       </div>
@@ -87,8 +87,8 @@
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="/" class="logo">
-              U.C.R
+            <a href="/" class="logo" style="color:orangered; font-size:xx-large; font-family:cursive">
+              Wise Choice
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
@@ -100,13 +100,13 @@
               @else
               <li class="has-sub">
                 <a href="javascript:void(0)">Join In</a>
-               
+
                 <ul class="sub-menu">
                   <li><a href="{{ route('login') }}">Sign In</a></li>
                   <li><a href="{{ route('login') }}">Sign Up</a></li>
-                
+
                   @endauth
-                  
+
                 </ul>
               </li>
 
@@ -129,7 +129,7 @@
   <!-- ***** Main Banner Area Start ***** -->
   <section class="section main-banner" id="top" data-section="section1">
     <video autoplay muted loop id="bg-video">
-      <source src={{asset('images/course-video.mp4')}} type="video/mp4" />
+      <source src={{asset('images/newone.mp4')}} style="height: 500px;" type="video/mp4" />
     </video>
 
     <div class="video-overlay header-text">
@@ -137,9 +137,9 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="caption">
-              <h6>Hello Students😊</h6>
-              <h2>Welcome to U.C.R</h2>
-              <p>Need help choosing a course? Do not worry🤗. We got you!<br>We have a variety of courses lined up for you to choose <br>from according to your interests and grades.</p>
+              <h6>Hello Students</h6>
+              <h2>Welcome to<em><span style="color:orangered; font-family:cursive">Wise Choice👍🏼</span></em></h2>
+              <p>Need help choosing a course? Do not worry. We got you!<br>We have a variety of courses lined up for you to choose <br>from according to your interests and grades.</p>
               <div class="main-button-red">
                 <a href="{{ route('login') }}">Join Us Now!</a>
               </div>
@@ -214,11 +214,13 @@
         <div class="col-lg-4">
           <div class="categories">
             <h4>Course Categories</h4>
+            @foreach($courses as $course)
             <ul>
-              @foreach($courses as $course)
+
               <li><a href="#">{{$course->course_name}}</a></li>
-              @endforeach
+
             </ul>
+            @endforeach
             <div class="main-button-red">
               <a href="meetings.html">Course categories</a>
             </div>
@@ -230,12 +232,12 @@
             <div class="col-lg-6">
               <div class="meeting-item">
                 <div class="thumb">
-                  <a href="#"><img src={{asset('images/meeting-01.jpg')}} alt="New Lecturer Meeting"></a>
+                  <a href="#"><img src={{asset('images/coursespic.jpg')}} alt="New Lecturer Meeting"></a>
                 </div>
                 <div class="down-content">
                   <a href="#">
                     <h4>{{$course->course_name}}</h4>
-                    <p>Hello</p>
+
                   </a>
                   @foreach($holland as $hol)
                   @if($course->id==$hol->course_id)
@@ -264,7 +266,7 @@
                 <h3>RECOMMEND UNIVERSITY COURSE NOW</h3>
                 <p>Go ahead and join us now to get a recommendation on the desired course you would like.</p>
                 <div class="main-button-red">
-              <a href="{{ route('login') }}">Join Us Now!</a>
+                  <a href="{{ route('login') }}">Join Us Now!</a>
                 </div>
               </div>
             </div>
@@ -282,8 +284,8 @@
               </div>
               <div class="accordion-body">
                 <div class="content">
-                <p>This site is aimed at especially guiding students who have just completed high school.<br><br> We are aware of the confusion, the indecisiveness and the presure to make up your mind that meets you when you graduate into this new stage.
-                    </p>
+                  <p>This site is aimed at especially guiding students who have just completed high school.<br><br> We are aware of the confusion, the indecisiveness and the presure to make up your mind that meets you when you graduate into this new stage.
+                  </p>
                 </div>
               </div>
             </article>
@@ -297,13 +299,13 @@
               <div class="accordion-body">
                 <div class="content">
                   <p>All you need is to:<br>
-                  1. Create an account<br>
-                     Click 'Join In' to log in if you are an existing user or create a new account</p><br>
+                    1. Create an account<br>
+                    Click 'Join In' to sign in if you are an existing user or sign up to create a new account</p><br>
                   2. Fill in the form<br>
-                    <p>When you log in you will see a form to fill in entry of grade and interest.</p>
-                    <br>
+                  <p>When you log in you will see a form to fill in entry of grade and interest.</p>
+                  <br>
                   3. Get recommendatiion<br>
-                 <p> You will get your course recommendation with univeristies available.</p>
+                  <p> You will get your course recommendation with univeristies available.</p>
                 </div>
               </div>
             </article>
@@ -343,13 +345,13 @@
               <div class="row">
                 <div class="col-12">
                   <div class="count-area-content new-students">
-                    <div class="count-digit">2345</div>
+                    <div class="count-digit"></div>
                     <div class="count-title">highly recommended course</div>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="count-area-content">
-                    <div class="count-digit">32</div>
+                    <div class="count-digit"></div>
                     <div class="count-title">the big interest</div>
                   </div>
                 </div>
@@ -359,7 +361,7 @@
         </div>
         <div class="col-lg-6 align-self-center">
           <div class="video">
-            <a href="https://www.youtube.com/watch?v=HndV87XpkWg" target="_blank"><img src=asset('images/play-icon.png" alt=""></a>
+            <a href="" target="_blank"><img src={{asset('images/homepart4.jpg')}} alt=""></a>
           </div>
         </div>
       </div>
@@ -417,7 +419,7 @@
               </li>
               <li>
                 <h6>Email Address</h6>
-                <span>ucr@gmail.com</span>
+                <span>wisechoiceucr@gmail.com</span>
               </li>
               <li>
                 <h6>Street Address</h6>
@@ -425,7 +427,7 @@
               </li>
               <li>
                 <h6>Website URL</h6>
-                <span>www.ucr.edu</span>
+                <span>www.wisechoice.edu</span>
               </li>
             </ul>
           </div>
@@ -433,7 +435,7 @@
       </div>
     </div>
     <div class="footer">
-      <p>Copyright © 2022 U.C.R System. All Rights Reserved. </p>
+      <p>Copyright © 2022 Wise Choice System. All Rights Reserved. </p>
     </div>
   </section>
 
