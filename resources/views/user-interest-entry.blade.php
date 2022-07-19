@@ -48,27 +48,241 @@
 
 
 
-            <form id="signin" action="{{url('/adduserentry')}}" method="POST" style="height:800px">
+            <form id="signin" action="{{url('')}}" method="POST" style="height:900px">
 
 
                 @csrf
                 <div class="ribbon"><a href="#" id="flipToRecover" class="flipLink" title="Click Here to enter grades">View Points</a></div>
                 <h2>Interest Entry</h2>
-                <!-- <p style="color:white; text-align:center;">Enter grades for Maths, English, Swahili and two sciences or one humanity and one technical or two humanities</p> -->
+                @foreach($question as $q)
+                @foreach($holland as $hol)
+                @if($hol->id==$q->holland_id)
+                @if($q->id==2)
+                <p>{{$q->question}} : {{$hol->holland_name}}</p>
+                <!-- <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> -->
+                <select id="option_1">
+                    <option value="">---</option>
+                    <option value="2">Agree</option>
 
-                <p>Do you like talking to people?</p>
+                    <option value="1">Neutral</option>
+
+                    <option value="0">Disagree</option>
+                </select>
+
+                <span class="error_form" id="option1_error_message"></span>
+                @endif
+                @endif
+                @endforeach
+
+                @foreach($holland as $hol)
+                @if($hol->id==$q->holland_id)
+                @if($q->id==3)
+
+                <p>{{$q->question}} : {{$hol->holland_name}} </p>
+                <!-- <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> -->
+                <select id="option_2">
+                    <option value="">---</option>
+                    <option value="2">Agree</option>
+
+                    <option value="1">Neutral</option>
+
+                    <option value="0">Disagree</option>
+                </select>
+
+                <span class="error_form" id="option2_error_message"></span>
+                @endif
+                @endif
+                @endforeach
+
+                @foreach($holland as $hol)
+                @if($hol->id==$q->holland_id)
+                @if($q->id==4)
+                <p>{{$q->question}} : {{$hol->holland_name}} </p>
+                <!-- <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> -->
+                <select id="option_3">
+                    <option value="">---</option>
+                    <option value="2">Agree</option>
+
+                    <option value="1">Neutral</option>
+
+                    <option value="0">Disagree</option>
+                </select>
+
+                <span class="error_form" id="option3_error_message"></span>
+                @endif
+                @endif
+                @endforeach
+
+                @foreach($holland as $hol)
+                @if($hol->id==$q->holland_id)
+                @if($q->id==5)
+                <p>{{$q->question}} : {{$hol->holland_name}} </p>
+                <!-- <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> -->
+                <select id="option_4">
+                    <option value="">---</option>
+                    <option value="2">Agree</option>
+
+                    <option value="1">Neutral</option>
+
+                    <option value="0">Disagree</option>
+                </select>
+
+                <span class="error_form" id="option_error_message4"></span>
+                @endif
+                @endif
+                @endforeach
+
+                @foreach($holland as $hol)
+                @if($hol->id==$q->holland_id)
+                @if($q->id==6)
+                <p>{{$q->question}} : {{$hol->holland_name}} </p>
+                <!-- <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> -->
+                <select id="option_5">
+                    <option value="">---</option>
+                    <option value="2">Agree</option>
+
+                    <option value="1">Neutral</option>
+
+                    <option value="0">Disagree</option>
+                </select>
+
+                <span class="error_form" id="option5_error_message"></span>
+                @endif
+                @endif
+                @endforeach
+                @foreach($holland as $hol)
+                @if($hol->id==$q->holland_id)
+                @if($q->id==7)
+                <p>{{$q->question}} : {{$hol->holland_name}}</p>
+                <!-- <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> -->
+                <select id="option_6">
+                    <option value="">---</option>
+                    <option value="2">Agree</option>
+
+                    <option value="1">Neutral</option>
+
+                    <option value="0">Disagree</option>
+                </select>
+
+                <span class="error_form" id="option6_error_message"></span>
+                @endif
+                @endif
+                @endforeach
+                @foreach($holland as $hol)
+                @if($hol->id==$q->holland_id)
+                @if($q->id==8)
+                <p>{{$q->question}} : {{$hol->holland_name}} </p>
                 <!-- <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> -->
                 <select id="option2">
                     <option value="">---</option>
-                    <option value="1">Agree</option>
-                    <option value="2">Slightly Agree</option>
-                    <option value="3">Neutral</option>
-                    <option value="4">Slightly Disagree</option>
-                    <option value="5">Disagree</option>
+                    <option value="2">Agree</option>
+
+                    <option value="1">Neutral</option>
+
+                    <option value="0">Disagree</option>
                 </select>
 
                 <span class="error_form" id="option_error_message2"></span>
+                @endif
+                @endif
+                @endforeach
+                @foreach($holland as $hol)
+                @if($hol->id==$q->holland_id)
+                @if($q->id==9)
+                <p>{{$q->question}} : {{$hol->holland_name}}</p>
+                <!-- <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> -->
+                <select id="option2">
+                    <option value="">---</option>
+                    <option value="2">Agree</option>
 
+                    <option value="1">Neutral</option>
+
+                    <option value="0">Disagree</option>
+                </select>
+
+                <span class="error_form" id="option_error_message2"></span>
+                @endif
+                @endif
+                @endforeach
+
+                @foreach($holland as $hol)
+                @if($hol->id==$q->holland_id)
+                @if($q->id==10)
+                <p>{{$q->question}} : {{$hol->holland_name}}</p>
+                <!-- <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> -->
+                <select id="option2">
+                    <option value="">---</option>
+                    <option value="2">Agree</option>
+
+                    <option value="1">Neutral</option>
+
+                    <option value="0">Disagree</option>
+                </select>
+
+                <span class="error_form" id="option_error_message2"></span>
+                @endif
+                @endif
+                @endforeach
+
+                @foreach($holland as $hol)
+                @if($hol->id==$q->holland_id)
+                @if($q->id==11)
+                <p>{{$q->question}} : {{$hol->holland_name}}</p>
+                <!-- <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> -->
+                <select id="option2">
+                    <option value="">---</option>
+                    <option value="2">Agree</option>
+
+                    <option value="1">Neutral</option>
+
+                    <option value="0">Disagree</option>
+                </select>
+
+                <span class="error_form" id="option_error_message2"></span>
+                @endif
+                @endif
+                @endforeach
+
+                @foreach($holland as $hol)
+                @if($hol->id==$q->holland_id)
+                @if($q->id==12)
+                <p>{{$q->question}} : {{$hol->holland_name}}</p>
+                <!-- <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> -->
+                <select id="option2">
+                    <option value="">---</option>
+                    <option value="2">Agree</option>
+
+                    <option value="1">Neutral</option>
+
+                    <option value="0">Disagree</option>
+                </select>
+
+                <span class="error_form" id="option_error_message2"></span>
+                @endif
+                @endif
+                @endforeach
+
+                @foreach($holland as $hol)
+                @if($hol->id==$q->holland_id)
+                @if($q->id==13)
+                <p>{{$q->question}}</p>
+                <!-- <input id="name" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" /> -->
+                <select id="option2">
+                    <option value="">---</option>
+                    <option value="2">Agree</option>
+
+                    <option value="1">Neutral</option>
+
+                    <option value="0">Disagree</option>
+                </select>
+
+                <span class="error_form" id="option_error_message2"></span>
+                @endif
+                @endif
+                @endforeach
+                @endforeach
+
+    
 
                 <input type="submit" value="{{ __('Submit') }}">
 
@@ -77,7 +291,7 @@
 
 
             <form id="signup" action="" method="POST">
-            <div class="ribbon"><a href="#" id="flipToRecover" class="flipLink" title="Click Here to enter grades">Back</a></div>
+                <div class="ribbon"><a href="#" id="flipToRecover" class="flipLink" title="Click Here to enter grades">Back</a></div>
 
                 <p>Total Points:</p>
                 <span>20</span>

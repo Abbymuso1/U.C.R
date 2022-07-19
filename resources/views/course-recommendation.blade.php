@@ -133,44 +133,33 @@
                 </div>
 
                 <div class="row">
-                    @foreach($userinterestentry as $userint)
-                    @if(Auth::user()->id==$userint->user_id)
+
+
                     @foreach($course as $co)
-                    @if($co->id==$userint->course_id)
+                    @foreach($subject as $sub)
+                    @if($co->id==$sub->course_id)
+                    @foreach($grade as $gr)
 
-                    <div class="col-lg-3">
-                        <div class="item">
-                            <img src={{asset('images/course-01.jpg')}} alt="Course One">
-                            <div class="down-content">
-                                @if($userint->answer == 1)
-                                <h4>{{$co->course_name}}</h4>
-                                @elseif($userint->answer==0)
-                                <h4>No recommendation</h4>
-                                @endif
-                                <div class="info">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <ul>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                                <li><i class="fa fa-star"></i></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-4">
-                                            <span>$160</span>
-                                        </div>
-                                    </div>
-                                </div>
+                    @foreach($usergradeentry as $userint)
 
-                            </div>
-                        </div>
-                    </div>
+                    @if($sub->subject_name=="Mean grade")
+
+                    @if($sub->id==$gr->subject_id)
+
+                    @if($userint->average==$gr->score)
+
+                    <p>{{$co->name}}hello</p>
+                    @endif
 
                     @endif
+
+                    @endif
+
+                    @endforeach
+                  
                     @endforeach
                     @endif
+                    @endforeach
                     @endforeach
                 </div>
 

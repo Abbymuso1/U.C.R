@@ -633,13 +633,13 @@ $index = 0;
 
                 });
                 $(".delete-subject").click(function(e) {
-                    let class1 = $(this).data('class1');
+                    let subject = $(this).data('class1');
                     if (confirm('Are you sure you want to permanently delete this subject?')) {
 
-                        $.post("/course/delete", {
+                        $.post("/subject/delete", {
                                 '_token': $('meta[name=csrf-token]').attr('content'),
                                 data: {
-                                    class1: class1
+                                    subject: subject
                                 },
                             },
 

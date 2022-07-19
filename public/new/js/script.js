@@ -38,8 +38,6 @@ $(function() {
     }
     $("#email_error_message").hide();
     $("#pass_error_message").hide();
-
-
     $("#name_error_message").hide();
     $("#email_error_message1").hide();
     $("#phone_error_message").hide();
@@ -53,6 +51,14 @@ $(function() {
     $("#option_error_message8").hide();
     $("#option_error_message9").hide();
     $("#option_error_message10").hide();
+
+
+    $("#option1_error_message").hide();
+    $("#option2_error_message").hide();
+    $("#option3_error_message").hide();
+    $("#option4_error_message").hide();
+    $("#option5_error_message").hide();
+    $("#option6_error_message").hide();
 
     var error_name = false;
     var error_email = false;
@@ -69,6 +75,12 @@ $(function() {
     var error_option6 = false;
     var error_option7 = false;
     var error_option8 = false;
+    var error_option_1 = false;
+    var error_option_2 = false;
+    var error_option_3 = false;
+    var error_option_4 = false;
+    var error_option_5 = false;
+    var error_option_6 = false;
 
 
     $("#username").focusout(function() {
@@ -124,6 +136,26 @@ $(function() {
     });
     $("#option10").focusout(function() {
         check_option10();
+    });
+
+    $("#option_1").focusout(function() {
+        check_option_1();
+    });
+
+    $("#option_2").focusout(function() {
+        check_option_2();
+    });
+    $("#option_3").focusout(function() {
+        check_option_3();
+    });
+    $("#option_4").focusout(function() {
+        check_option_4();
+    });
+    $("#option_5").focusout(function() {
+        check_option_5();
+    });
+    $("#option_6").focusout(function() {
+        check_option_6();
     });
 
     function check_pass() {
@@ -330,5 +362,101 @@ $(function() {
         }
     }
 
+    function check_option_1() {
 
+        var opt = $("#option_1").val();
+        if (opt) {
+            $("#option1_error_message").hide();
+            // $("#email1").css("border-bottom", "3px solid green");
+            // $("#email1").css("border-bottom", "12px");
+        } else {
+            $("#option1_error_message").html("(Fill in option)");
+            $("#option1_error_message").css("color", "red");
+
+            $("#option1_error_message").show();
+            error_option_1 = true;
+        }
+    }
+
+    function check_option_2() {
+
+        var opt = $("#option_2").val();
+        if (opt) {
+            $("#option2_error_message").hide();
+            // $("#email1").css("border-bottom", "3px solid green");
+            // $("#email1").css("border-bottom", "12px");
+        } else {
+            $("#option2_error_message").html("(Fill in option)");
+            $("#option2_error_message").css("color", "red");
+
+            $("#option2_error_message").show();
+            error_option_2 = true;
+        }
+    }
+
+    function check_option_3() {
+
+        var opt = $("#option_3").val();
+        if (opt) {
+            $("#option3_error_message").hide();
+            // $("#email1").css("border-bottom", "3px solid green");
+            // $("#email1").css("border-bottom", "12px");
+        } else {
+            $("#option3_error_message").html("(Fill in option)");
+            $("#option3_error_message").css("color", "red");
+
+            $("#option3_error_message").show();
+            error_option_3 = true;
+        }
+    }
+
+    function check_option_4() {
+
+        var opt = $("#option_4").val();
+        if (opt) {
+            $("#option4_error_message").hide();
+            // $("#email1").css("border-bottom", "3px solid green");
+            // $("#email1").css("border-bottom", "12px");
+        } else {
+            $("#option4_error_message").html("(Fill in option)");
+            $("#option4_error_message").css("color", "red");
+
+            $("#option4_error_message").show();
+            error_option_4 = true;
+        }
+    }
+
+
+    function check_option_5() {
+
+        var opt = $("#option_5").val();
+        if (opt) {
+            $("#option5_error_message").hide();
+            // $("#email1").css("border-bottom", "3px solid green");
+            // $("#email1").css("border-bottom", "12px");
+        } else {
+            $("#option5_error_message").html("(Fill in option)");
+            $("#option5_error_message").css("color", "red");
+
+            $("#option5_error_message").show();
+            error_option_5 = true;
+        }
+    }
+
+
+    function check_option_6() {
+
+        var opt = $("#option_6").val();
+        if (opt) {
+            $("#option6_error_message").hide();
+            // $("#email1").css("border-bottom", "3px solid green");
+            // $("#email1").css("border-bottom", "12px");
+        } else {
+            $("#option6_error_message").html("(Fill in option)");
+            $("#option6_error_message").css("color", "red");
+
+            $("#option6_error_message").show();
+            error_option_6 = true;
+        }
+    }
 });

@@ -33,11 +33,12 @@ class SubjectController extends Controller
         return redirect('admin/course');
     }
 
-    public function destroy($id)
+    public function delete(Request $request)
     {
-        $Subject = Subject::find($id);
-        $Subject->delete();
-        return redirect('admin/subject');
+        $data = $request->input('data')['subject'];
+        $subject = Subject::find($data);
+        $subject->delete();
+        $request->session()->flash('success', 'Subject has been successfully deleted');
     }
 
 

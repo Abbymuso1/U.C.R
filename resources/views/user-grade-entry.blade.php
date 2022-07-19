@@ -177,11 +177,11 @@
                 @foreach($graderef as $gr)
                 @if($grade->average==$gr->score)
                 <p>Mean Grade: {{$gr->grade}}</p>
-              
-                <p>--------</p>
                 @endif
                 @endforeach
                 @endforeach
+                <p>--------</p>
+                
 
 
 

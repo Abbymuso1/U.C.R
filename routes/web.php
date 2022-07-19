@@ -25,6 +25,8 @@ use App\Http\Controllers\UserInterestController;
 use App\Http\Controllers\GradeEntryController;
 use App\Models\GradeEntry;
 use App\Models\GradeRef;
+use App\Models\Holland;
+use Ramsey\Uuid\Type\Integer;
 
 /*
 |--------------------------------------------------------------------------
@@ -131,21 +133,29 @@ Route::middleware([
 
     Route::get('user-entry', function () {
 
-        $grades=GradeEntry::all();
+        $grades = GradeEntry::all();
 
-        $graderef=GradeRef::all();
+        $graderef = GradeRef::all();
 
-        $data=[
-            'grades'=>$grades,
-            'graderef'=>$graderef
+        $data = [
+            'grades' => $grades,
+            'graderef' => $graderef
         ];
         Log::info('The users grade entries are being viewed by the user');
-        return view('user-grade-entry',$data);
+        return view('user-grade-entry', $data);
     })->name('user-entry');
 
     Route::get('user-interest-entry', function () {
+
+        $question = Interest::all();
+        $holland = Holland::all();
+
+        $data = [
+            'question' => $question,
+            'holland' => $holland
+        ];
         Log::info('The users grade entries are being viewed by the user');
-        return view('user-interest-entry');
+        return view('user-interest-entry', $data);
     })->name('user-interest-entry');
 
     Route::post('/adduserinterestentry', [UserInterestController::class, 'store']);
@@ -209,7 +219,7 @@ Route::middleware([
 
     Route::post('add-subject', [SubjectController::class, 'store']);
     Route::put('update-subject/{id}', [SubjectController::class, 'update']);
-    Route::get('deleteSubject/{id}', [SubjectController::class, 'destroy']);
+    Route::post('/subject/delete', [SubjectController::class, 'delete']);;
 
     Route::post('add-university', [UniversityController::class, 'store']);
     Route::put('update-university/{id}', [UniversityController::class, 'update']);
@@ -224,18 +234,30 @@ Route::middleware([
     Route::get('/usercourse', function () {
 
 
-        $userinterestentry = DB::table('user_interest_entry')
-            ->join('users', 'users.id', '=', 'user_interest_entry.user_id')
-            ->select('user_interest_entry.*')
+        $usergradeentry = GradeEntry::all();
+        $course = Course::all();
+        $holland = DB::table('hollandcode')
+            ->join('course', 'course.id', '=', 'hollandcode.course_id')
+            ->select('hollandcode.*')
+            ->get();
+        $subject = DB::table('subject')
+            ->join('course', 'course.id', '=', 'subject.course_id')
+            ->select('subject.*')
             ->get();
 
-        $course = DB::table('course')
-            ->join('user_interest_entry', 'user_interest_entry.course_id', '=', 'course.id')
-            ->select('course.*')
+        $grade = DB::table('grades')
+            ->join('subject', 'subject.id', '=', 'grades.subject_id')
+            ->select('grades.*')
             ->get();
+
+
+      
 
         $data = [
-            'userinterestentry' => $userinterestentry,
+            'holland' => $holland,
+            'subject' => $subject,
+            'grade' => $grade,
+            'usergradeentry' => $usergradeentry,
             'course' => $course,
         ];
 
